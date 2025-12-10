@@ -1,20 +1,59 @@
 package com.finocio;
 
+import java.util.Scanner;
+
 public class Main {
     public static void main(String[] args) {
-        //read arguments
 
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Ingrese operación (ej: 1 + 2):");
+        String input = scanner.nextLine().trim();
 
-        String a = args[0];
-        String b = args[1];
-        String operation = args[2]; // suma, resta, division, multiplicacion
+        // Separar por espacios
+        String[] parts = input.split(" ");
+        if (parts.length != 3) {
+            System.out.println("Error: Formato incorrecto. Use: número operador número (ej: 1 + 2)");
+            return;
+        }
 
-        double numA = Double.parseDouble(a);
-        double numB = Double.parseDouble(b);
+        double numA;
+        double numB;
+        String operator = parts[1];
 
+        try {
+            numA = Double.parseDouble(parts[0]);
+            numB = Double.parseDouble(parts[2]);
+        } catch (NumberFormatException e) {
+            System.out.println("Error: Uno de los valores no es un número válido.");
+            return;
+        }
 
+        double result = 0;
 
+        switch (operator) {
+            case "+":
+                result = new AddService().add(numA, numB);
+                break;
+            case "-":
+                result = new SubtractService().subtract(numA, numB);
+                break;
+            case "*":
+                result = new MultiplicationService().multiply(numA, numB);
+                break;
+            case "/":
+                try {
+                    result = new DivisionService().divide(numA, numB);
+                } catch (IllegalArgumentException e) {
+                    System.out.println("Error: " + e.getMessage());
+                    return;
+                }
+                break;
+            default:
+                System.out.println("Error: Operador no soportado. Use +, -, *, /");
+                return;
+        }
 
-        // Add interface
+        System.out.println("Resultado: " + result);
     }
 }
+
