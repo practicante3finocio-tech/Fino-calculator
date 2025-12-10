@@ -7,9 +7,14 @@ public class Main {
 
         String a = args[0];
         String b = args[1];
-        String c = args[2];
+        String operation = args[2]; // suma, resta, division, multiplicacion
 
-        System.out.println("a= " + a + " b= " + b +" c=" + c);
+        double numA = Double.parseDouble(a);
+        double numB = Double.parseDouble(b);
+
+
+
+
         // Add interface
     }
 }
