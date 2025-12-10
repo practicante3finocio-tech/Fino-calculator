@@ -28,7 +28,7 @@ public class Main {
             return;
         }
 
-        double result = 0;
+        double result;
 
         switch (operator) {
             case "+":
