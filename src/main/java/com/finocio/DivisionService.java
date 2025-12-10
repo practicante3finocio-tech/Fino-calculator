@@ -17,6 +17,8 @@ public class DivisionService implements CalculatorService{
         throw new UnsupportedOperationException("Multiply not supported");
     }
 
+    //
+
     @Override
     public double divide(double a, double b) {
         if (b == 0) {
