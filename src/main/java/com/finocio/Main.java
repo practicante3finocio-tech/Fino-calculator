@@ -5,6 +5,8 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
 
+        //metodo para insertar los datos por linea de comandos
+
         Scanner scanner = new Scanner(System.in);
         System.out.println("Ingrese operación (ej: 1 + 2):");
         String input = scanner.nextLine().trim();
@@ -27,6 +29,8 @@ public class Main {
             System.out.println("Error: Uno de los valores no es un número válido.");
             return;
         }
+
+
 
         double result;
 
